@@ -51,10 +51,21 @@
             [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
           ></span>
         </span>
+
+        <a nz-dropdown [nzDropdownMenu]="menu">
+          <span nz-icon nzType="global" nzTheme="outline"></span>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu nzSelectable>
+            <li nz-menu-item (click)="onSwitchLanguage('zh')">中文</li>
+            <li nz-menu-item (click)="onSwitchLanguage('en')">English</li>
+          </ul>
+        </nz-dropdown-menu>
       </div>
     </nz-header>
     <nz-content>
       <div class="inner-content">
+        <nz-range-picker [(ngModel)]="date"></nz-range-picker>
         <router-outlet></router-outlet>
       </div>
     </nz-content>
