@@ -1,19 +1,18 @@
-import { EnvironmentProviders, importProvidersFrom } from '@angular/core';
-import {
-  MenuFoldOutline,
-  MenuUnfoldOutline,
-  FormOutline,
-  DashboardOutline,
-} from '@ant-design/icons-angular/icons';
-import { NzIconModule } from 'ng-zorro-antd/icon';
+import { IconDefinition } from '@ant-design/icons-angular';
+import { NZ_ICONS } from 'ng-zorro-antd/icon';
 
-const icons = [
-  MenuFoldOutline,
-  MenuUnfoldOutline,
-  DashboardOutline,
-  FormOutline,
-];
+import * as AllIcons from '@ant-design/icons-angular/icons';
 
-export function provideNzIcons(): EnvironmentProviders {
-  return importProvidersFrom(NzIconModule.forRoot(icons));
-}
+const antDesignIcons = AllIcons as {
+  [key: string]: IconDefinition;
+};
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(
+  (key) => antDesignIcons[key]
+);
+
+const iconsProvider = {
+  provide: NZ_ICONS,
+  useValue: icons,
+};
+
+export { iconsProvider };
