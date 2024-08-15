@@ -1,9 +1,4 @@
-import {
-  ApplicationConfig,
-  provideZoneChangeDetection,
-  importProvidersFrom,
-} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
@@ -14,7 +9,6 @@ import { i18nProvider } from './i18n-provider';
 const providers: any[] = [
   provideZoneChangeDetection({ eventCoalescing: true }),
   provideRouter(routes),
-  importProvidersFrom(FormsModule),
   provideAnimationsAsync(),
   provideHttpClient(),
   iconsProvider,
