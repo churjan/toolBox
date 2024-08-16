@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +10,6 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.less'],
 })
 export class AppComponent {
-  date = null;
-  isCollapsed = false;
-
   constructor() {}
 
   onSwitchLanguage(language) {
